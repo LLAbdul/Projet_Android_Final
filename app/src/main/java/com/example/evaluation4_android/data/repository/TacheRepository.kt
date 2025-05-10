@@ -1,7 +1,7 @@
 package com.example.evaluation4_android.data.repository
 
 import com.example.evaluation4_android.data.dao.TacheDao
-import com.example.evaluation4_android.data.model.Tache
+import com.example.evaluation4_android.model.Tache
 import kotlinx.coroutines.flow.Flow
 
 class TacheRepository(private val tacheDao: TacheDao) {
