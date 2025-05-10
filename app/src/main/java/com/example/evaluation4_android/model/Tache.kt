@@ -16,6 +16,6 @@ data class Tache(
     val nom: String,
     val note: String?,
     val isCompleted : Boolean = false,
-    val expectedDueDate: Long,
+    val expectedDueDate: Long?,
 
     )
