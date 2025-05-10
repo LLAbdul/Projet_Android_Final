@@ -28,6 +28,6 @@ interface TacheDao {
     fun getAllTaches(): Flow<List<Tache>>
 
     @Query("UPDATE tache SET isCompleted = :isCompleted WHERE id = :id")
-    suspend fun updateTaskCompletedStatus(id: Int, isCompleted: Boolean)
+    suspend fun updateTacheCompletedStatus(id: Int, isCompleted: Boolean)
 
 }
