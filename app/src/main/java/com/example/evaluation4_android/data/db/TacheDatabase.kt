@@ -7,11 +7,8 @@ import androidx.room.RoomDatabase
 import com.example.evaluation4_android.model.Tache
 import com.example.evaluation4_android.data.dao.TacheDao
 
-@Database(
-    entities = [Tache::class],
-    version = 1,
-    exportSchema = false
-)
+@Database(entities = [Tache::class], version = 1, exportSchema = false)
+
 abstract class TacheDatabase : RoomDatabase() {
 
     abstract fun tacheDao(): TacheDao
