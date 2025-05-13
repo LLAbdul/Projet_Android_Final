@@ -89,4 +89,58 @@ class TacheViewModel(private val repository: TacheRepository) : ViewModel() {
         }
     }
 
+    fun modifierTache(tacheAModifier: Tache) {
+        if (tacheAModifier.nom.isBlank()) {
+            _errorMessage.value = "Le nom ne peut pas être vide lors de la modification."
+            return
+        }
+
+        viewModelScope.launch {
+            _isLoading.value = true
+            try {
+                repository.updateTache(tacheAModifier)
+                _errorMessage.value = null
+            } catch (e: Exception) {
+                _errorMessage.value = "Erreur lors de la modification de la tâche: ${e.message}"
+            } finally {
+                _isLoading.value = false
+            }
+        }
+    }
+
+    fun supprimerTache(tache: Tache) {
+        viewModelScope.launch {
+            _isLoading.value = true
+            try {
+                repository.deleteTache(tache)
+                _errorMessage.value = null
+                if (_selectedTacheState.value?.id == tache.id) {
+                    _selectedTacheState.value = null
+                }
+            } catch (e: Exception) {
+                _errorMessage.value = "Erreur lors de la suppression de la tâche: ${e.message}"
+            } finally {
+                _isLoading.value = false
+            }
+        }
+    }
+
+    fun changerEtatCompletionTache(id: Int, isCompleted: Boolean) {
+        viewModelScope.launch {
+            try {
+                repository.updateTacheCompletedStatus(id, isCompleted)
+                _errorMessage.value = null
+                if (_selectedTacheState.value?.id == id) {
+                    _selectedTacheState.value =
+                        _selectedTacheState.value?.copy(isCompleted = isCompleted)
+                }
+            } catch (e: Exception) {
+                _errorMessage.value = "Erreur lors du changement d'état: ${e.message}"
+            }
+        }
+    }
+
+    fun clearSelectedTache() {
+        _selectedTacheState.value = null
+    }
 }
