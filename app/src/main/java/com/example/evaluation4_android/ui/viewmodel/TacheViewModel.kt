@@ -143,4 +143,7 @@ class TacheViewModel(private val repository: TacheRepository) : ViewModel() {
     fun clearSelectedTache() {
         _selectedTacheState.value = null
     }
+    fun clearErrorMessage() {
+        _errorMessage.value = null
+    }
 }
