@@ -28,6 +28,7 @@ class TacheViewModel(private val repository: TacheRepository) : ViewModel() {
     init {
         chargerToutesLesTaches()
     }
+
     private fun chargerToutesLesTaches() {
         viewModelScope.launch {
             _isLoading.value = true
@@ -43,6 +44,7 @@ class TacheViewModel(private val repository: TacheRepository) : ViewModel() {
                 }
         }
     }
+
     fun ajouterNouvelleTache(tacheData: AjoutTacheDTO) {
         if (tacheData.nom.isBlank()) {
             _errorMessage.value = "Le nom de la tâche ne peut pas être vide."
@@ -73,6 +75,7 @@ class TacheViewModel(private val repository: TacheRepository) : ViewModel() {
         }
 
     }
+
     fun chargerTacheParId(id: Int) {
         viewModelScope.launch {
             repository.getTacheById(id)
