@@ -10,7 +10,7 @@ class TachesApplication : Application() {
 
     private val database by lazy { TacheDatabase.getDatabase(this) }
 
-    val tacheRepository by lazy { TacheRepository(database.tacheDao()) }
+    private val tacheRepository by lazy { TacheRepository(database.tacheDao()) }
 
     val tacheViewModelFactory by lazy { TacheViewModelFactory(tacheRepository) }
 
