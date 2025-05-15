@@ -20,7 +20,7 @@
     <string name="priorite_requise">Priority *</string>
     <string name="dialogue_ok">OK</string>
     <string name="dialogue_annuler">Cancel</string>
-    <string name="texte_chargement">Loading...</string>
+    <string name="texte_chargement">Loading…</string>
 
     <string name="titre_ecran_ajouter_tache">Add a Task</string>
     <string name="en_tete_creation_tache">Create a Task</string>
