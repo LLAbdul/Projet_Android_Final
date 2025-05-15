@@ -17,18 +17,17 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.evaluation4_android.R
-import com.example.evaluation4_android.model.Priorite
 import com.example.evaluation4_android.model.Tache
 import java.text.SimpleDateFormat
 import java.util.*
 
 @Composable
 fun TacheCard(
+    modifier: Modifier = Modifier,
     tache: Tache,
     onTacheCliquee: () -> Unit,
     onTacheCompleteeModifiee: (Boolean) -> Unit,
-    onTacheLongCliquee: (() -> Unit)? = null,
-    modifier: Modifier = Modifier
+    onTacheLongCliquee: (() -> Unit)? = null
 ) {
     val formatteurDate = SimpleDateFormat("dd MMM yyyy", Locale.getDefault())
 
