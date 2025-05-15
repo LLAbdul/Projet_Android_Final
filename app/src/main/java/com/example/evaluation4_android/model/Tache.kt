@@ -1,6 +1,8 @@
 package com.example.evaluation4_android.model
+import android.content.Context
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.example.evaluation4_android.R
 
 enum class Priorite {
     ELEVE,
@@ -19,3 +21,11 @@ data class Tache(
     val expectedDueDate: Long?,
 
     )
+
+fun Priorite.toLocalizedString(context: Context): String {
+    return when (this) {
+        Priorite.ELEVE -> context.getString(R.string.priorite_elevee)
+        Priorite.MOYEN -> context.getString(R.string.priorite_moyenne)
+        Priorite.BAS -> context.getString(R.string.priorite_basse)
+    }
+}
