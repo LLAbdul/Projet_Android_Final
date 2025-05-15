@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">Evaluation4_Android</string>
+
+    <string name="titre_ecran_mes_taches">My Tasks</string>
+    <string name="description_bouton_ajouter_tache">Add a task</string>
+    <string name="message_aucune_tache">No tasks for now. Tap \'+\' to add one.</string>
+
+    <string name="date_invalide">Invalid date</string>
+    <string name="label_echeance_prefix">Due date: %1$s</string>
+    <string name="label_note_prefix">Note: %1$s</string>
+    <string name="label_priorite_prefix">Priority: %1$s</string>
+    <string name="priorite_elevee">High</string>
+    <string name="priorite_moyenne">Medium</string>
+    <string name="priorite_basse">Low</string>
+
+    <string name="action_retour">Back</string>
+    <string name="nom_tache_requis">Task name *</string>
+    <string name="note_tache_optionnelle">Note (optional)</string>
+    <string name="echeance_requise">Due date *</string>
+    <string name="priorite_requise">Priority *</string>
+    <string name="dialogue_ok">OK</string>
+    <string name="dialogue_annuler">Cancel</string>
+    <string name="texte_chargement">Loading...</string>
+
+    <string name="titre_ecran_ajouter_tache">Add a Task</string>
+    <string name="en_tete_creation_tache">Create a Task</string>
+    <string name="bouton_choisir_date">Choose date</string>
+    <string name="bouton_enregistrer_tache">Save Task</string>
+    <string name="erreur_nom_vide">Task name cannot be empty.</string>
+    <string name="erreur_echeance_manquante">Please select a due date.</string>
+
+    <string name="titre_ecran_modifier_tache">Task Details/Edit</string>
+    <string name="action_supprimer_tache">Delete Task</string>
+    <string name="erreur_tache_introuvable">Task not found or failed to load.</string>
+    <string name="bouton_modifier_date">Edit date</string>
+    <string name="etat_complet">Completed:</string>
+    <string name="bouton_enregistrer_modifications">Save changes</string>
+    <string name="titre_dialogue_confirmation_suppression">Confirm Deletion</string>
+    <string name="message_dialogue_confirmation_suppression">Are you sure you want to delete this task? This action cannot be undone.</string>
+    <string name="dialogue_supprimer">Delete</string>
+
+    <string name="erreur_chargement_taches">Error loading tasks</string>
+    <string name="erreur_chargement_detail_tache">Error loading task details ID %1$d</string>
+    <string name="erreur_ajout_tache">Error adding task</string>
+    <string name="erreur_modification_tache">Error modifying task</string>
+    <string name="erreur_suppression_tache">Error deleting task</string>
+    <string name="erreur_changement_etat_completion">Error changing completion status</string>
+
+    <string name="message_tache_supprimee">Task deleted</string>
+    <string name="message_dialogue_suppression_personnalisee">Do you really want to delete \'%1$s\'? This action is irreversible.</string>
+    <string name="erreur_id_tache_invalide">Error: Missing or invalid task ID.</string>
+
+    <string name="label_nom_tache_requis">Task name *</string>
+    <string name="label_note_optionnelle">Note (optional)</string>
+    <string name="label_date_echeance_requise">Due date *</string>
+    <string name="label_priorite_requise">Priority *</string>
+    <string name="label_completee">Completed:</string>
+    <string name="bouton_enregistrer">Save</string>
+
+
+    <string name="label_countdown_remaining">%1$d day(s), %2$d h %3$d min %4$d s left</string>
+    <string name="label_countdown_overdue">Overdue by %1$d day(s), %2$d h %3$d min %4$d s</string>
+
+
+</resources>

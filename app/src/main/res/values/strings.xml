@@ -1,3 +1,63 @@
 <resources>
     <string name="app_name">Evaluation4_Android</string>
+
+    <string name="titre_ecran_mes_taches">Mes Tâches</string>
+    <string name="description_bouton_ajouter_tache">Ajouter une tâche</string>
+    <string name="message_aucune_tache">Aucune tâche pour le moment. Appuyez sur \'+\' pour en ajouter une.</string>
+
+    <string name="date_invalide">Date invalide</string>
+    <string name="label_echeance_prefix">Échéance: %1$s</string>
+    <string name="label_note_prefix">Note: %1$s</string>
+    <string name="label_priorite_prefix">Priorité: %1$s</string>
+    <string name="priorite_elevee">Élevé</string>
+    <string name="priorite_moyenne">Moyen</string>
+    <string name="priorite_basse">Bas</string>
+
+    <string name="action_retour">Retour</string>
+    <string name="nom_tache_requis">Nom de la tâche *</string>
+    <string name="note_tache_optionnelle">Note (optionnel)</string>
+    <string name="echeance_requise">Date d\'échéance *</string>
+    <string name="priorite_requise">Priorité *</string>
+    <string name="dialogue_ok">OK</string>
+    <string name="dialogue_annuler">Annuler</string>
+    <string name="texte_chargement">Chargement…</string>
+
+    <string name="titre_ecran_ajouter_tache">Ajouter une tâche</string>
+    <string name="en_tete_creation_tache">Créer une tâche</string>
+    <string name="bouton_choisir_date">Choisir date</string>
+    <string name="bouton_enregistrer_tache">Enregistrer la tâche</string>
+    <string name="erreur_nom_vide">Le nom de la tâche ne peut pas être vide.</string>
+    <string name="erreur_echeance_manquante">Veuillez sélectionner une date d\'échéance prévue.</string>
+
+    <string name="titre_ecran_modifier_tache">Détail/Modifier Tâche</string>
+    <string name="action_supprimer_tache">Supprimer la tâche</string>
+    <string name="erreur_tache_introuvable">Tâche non trouvée ou erreur de chargement.</string>
+    <string name="bouton_modifier_date">Modifier date</string>
+    <string name="etat_complet">Complétée:</string>
+    <string name="bouton_enregistrer_modifications">Enregistrer les modifications</string>
+    <string name="titre_dialogue_confirmation_suppression">Confirmer la suppression</string>
+    <string name="message_dialogue_confirmation_suppression">Voulez-vous vraiment supprimer cette tâche ? Cette action est irréversible.</string>
+    <string name="dialogue_supprimer">Supprimer</string>
+
+    <string name="erreur_chargement_taches">Erreur lors du chargement des tâches</string>
+    <string name="erreur_chargement_detail_tache">Erreur chargement détail tâche ID %1$d</string>
+    <string name="erreur_ajout_tache">Erreur lors de l\'ajout de la tâche</string>
+    <string name="erreur_modification_tache">Erreur lors de la modification de la tâche</string>
+    <string name="erreur_suppression_tache">Erreur lors de la suppression de la tâche</string>
+    <string name="erreur_changement_etat_completion">Erreur lors du changement d\'état de complétion</string>
+
+    <string name="message_tache_supprimee">Tâche supprimée</string>
+    <string name="message_dialogue_suppression_personnalisee">Voulez-vous vraiment supprimer \'%1$s\' ? Cette action est irréversible.</string>
+    <string name="erreur_id_tache_invalide">Erreur: ID de tâche manquant ou invalide.</string>
+
+    <string name="label_nom_tache_requis">Nom de la tâche *</string>
+    <string name="label_note_optionnelle">Note (optionnel)</string>
+    <string name="label_date_echeance_requise">Date d\'échéance *</string>
+    <string name="label_priorite_requise">Priorité *</string>
+    <string name="label_completee">Complétée:</string>
+    <string name="bouton_enregistrer">Enregistrer</string>
+
+    <string name="label_countdown_remaining">Il reste %1$d jour(s), %2$d h %3$d min %4$d s</string>
+    <string name="label_countdown_overdue">En retard de %1$d jour(s), %2$d h %3$d min %4$d s</string>
+
 </resources>
