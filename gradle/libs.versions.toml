@@ -1,6 +1,5 @@
 [versions]
 agp = "8.6.1"
-calendar = "1.1.1"
 kotlin = "2.0.21"
 coreKtx = "1.16.0"
 junit = "4.13.2"
@@ -12,7 +11,6 @@ composeBom = "2025.05.00"
 lifecycleViewmodelKtx = "2.9.0"
 navigationCompose = "2.9.0"
 roomRuntime = "2.7.1"
-composeCompiler = "1.5.15"
 ksp = "2.0.21-1.0.27"
 composeUi = "1.8.1"
 
