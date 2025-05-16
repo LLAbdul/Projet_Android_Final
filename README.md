@@ -41,7 +41,7 @@ Chaque **Tâche** contient les champs suivants :
 
 ---
 
-## ✅ Fonctionnalités à Implémenter
+## ✅ Fonctionnalités Implémentées
 
 ### Affichage
 - Afficher la liste des tâches triées par date d’achèvement
