@@ -13,7 +13,8 @@ fun supprimerTache(
     onFinish: () -> Unit
 ) {
     tacheViewModel.supprimerTache(tache)
-    Toast.makeText(context, context.getString(R.string.message_tache_supprimee), Toast.LENGTH_SHORT).show()
+    Toast.makeText(context, context.getString(R.string.message_tache_supprimee), Toast.LENGTH_SHORT)
+        .show()
 
     onFinish()
 }
