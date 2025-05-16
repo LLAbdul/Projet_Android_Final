@@ -177,5 +177,3 @@ fun EcranDetailModificationTache(
     }
 
 }
-message.txt
-8 Ko
