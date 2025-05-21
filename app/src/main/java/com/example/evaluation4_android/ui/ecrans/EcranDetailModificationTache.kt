@@ -13,9 +13,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.evaluation4_android.TachesApplication
-import com.example.evaluation4_android.model.Priorite
 import com.example.evaluation4_android.ui.actions.supprimerTache
 import com.example.evaluation4_android.ui.composantes.BoiteDialogueSuppression
 import com.example.evaluation4_android.ui.composantes.ChampTacheForm
@@ -28,37 +25,36 @@ import com.example.evaluation4_android.R
 @Composable
 fun EcranDetailModificationTache(
     idTache: Int,
+    viewModel: TacheViewModel,
     onNavigateUp: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val tacheViewModel: TacheViewModel = viewModel(
-        factory = (LocalContext.current.applicationContext as TachesApplication).tacheViewModelFactory
-    )
+
 
     LaunchedEffect(idTache) {
-        tacheViewModel.chargerTacheParId(idTache)
+        viewModel.chargerTacheParId(idTache)
     }
 
-    val tacheSelectionnee by tacheViewModel.selectedTacheState.collectAsState()
-    val messageErreur by tacheViewModel.errorMessage.collectAsState()
-    val estEnChargement by tacheViewModel.isLoading.collectAsState()
+    val tacheSelectionnee by viewModel.selectedTacheState.collectAsState()
+    val messageErreur by viewModel.errorMessage.collectAsState()
+    val estEnChargement by viewModel.isLoading.collectAsState()
 
-    var nomTache by remember { mutableStateOf("") }
-    var noteTache by remember { mutableStateOf("") }
-    var dateEcheanceSelectionnee by remember { mutableStateOf<Long?>(null) }
-    var prioriteSelectionnee by remember { mutableStateOf(Priorite.MOYEN) }
-    var estCompletee by remember { mutableStateOf(false) }
+    val nomTache by viewModel.nomTache.collectAsState()
+    val noteTache by viewModel.noteTache.collectAsState()
+    val dateEcheanceSelectionnee by viewModel.dateEcheance.collectAsState()
+    val prioriteSelectionnee by viewModel.priorite.collectAsState()
+    val estCompletee by viewModel.estCompletee.collectAsState()
 
     var afficherDatePicker by remember { mutableStateOf(false) }
     var afficherDialogSuppression by remember { mutableStateOf(false) }
 
     LaunchedEffect(tacheSelectionnee) {
         tacheSelectionnee?.let { tache ->
-            nomTache = tache.nom
-            noteTache = tache.note ?: ""
-            dateEcheanceSelectionnee = tache.expectedDueDate
-            prioriteSelectionnee = tache.priorite
-            estCompletee = tache.isCompleted
+            viewModel.modifierNomTache(tache.nom)
+            viewModel.modifierNoteTache(tache.note ?: "")
+            viewModel.modifierDateEcheance(tache.expectedDueDate)
+            viewModel.modifierPriorite(tache.priorite)
+            viewModel.modifierEtatCompletion(tache.isCompleted)
         }
     }
 
@@ -66,7 +62,7 @@ fun EcranDetailModificationTache(
     LaunchedEffect(messageErreur) {
         messageErreur?.let {
             Toast.makeText(context, it, Toast.LENGTH_LONG).show()
-            tacheViewModel.clearErrorMessage()
+            viewModel.clearErrorMessage()
         }
     }
 
@@ -121,15 +117,15 @@ fun EcranDetailModificationTache(
             ) {
                 ChampTacheForm(
                     nomTache = nomTache,
-                    onNomChange = { nomTache = it },
+                    onNomChange = viewModel::modifierNomTache,
                     noteTache = noteTache,
-                    onNoteChange = { noteTache = it },
+                    onNoteChange = viewModel::modifierNoteTache,
                     dateEcheance = dateEcheanceSelectionnee,
                     onDateClick = { afficherDatePicker = true },
                     priorite = prioriteSelectionnee,
-                    onPrioriteChange = { prioriteSelectionnee = it },
+                    onPrioriteChange = viewModel::modifierPriorite,
                     estCompletee = estCompletee,
-                    onCompletionChange = { estCompletee = it },
+                    onCompletionChange = viewModel::modifierEtatCompletion,
                     estEnChargement = estEnChargement,
                     onSave = {
                         tacheSelectionnee?.let { tacheActuelle ->
@@ -141,9 +137,9 @@ fun EcranDetailModificationTache(
                                 priorite = prioriteSelectionnee,
                                 isCompleted = estCompletee
                             )
-                            tacheViewModel.modifierTache(tacheModifiee)
+                            viewModel.modifierTache(tacheModifiee)
 
-                            if (tacheViewModel.errorMessage.value == null && nomTache.isNotBlank() && dateEcheanceSelectionnee != null) {
+                            if (viewModel.errorMessage.value == null && nomTache.isNotBlank() && dateEcheanceSelectionnee != null) {
                                 onNavigateUp()
                             }
                         }
@@ -156,8 +152,8 @@ fun EcranDetailModificationTache(
     if (afficherDatePicker) {
         SelectionDateEcheance(
             initialDate = dateEcheanceSelectionnee,
-            onDateSelected = { dateEcheanceSelectionnee = it },
-            onDismiss = { afficherDatePicker = false }
+            onDateSelected = viewModel::modifierDateEcheance,
+                    onDismiss = { afficherDatePicker = false }
         )
     }
 
@@ -167,7 +163,7 @@ fun EcranDetailModificationTache(
                 tache = tache,
                 onDismiss = { afficherDialogSuppression = false },
                 onConfirm = {
-                    supprimerTache(context, tacheViewModel, tache) {
+                    supprimerTache(context, viewModel, tache) {
                         afficherDialogSuppression = false
                         onNavigateUp()
                     }
